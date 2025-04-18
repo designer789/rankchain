@@ -8,10 +8,9 @@ interface FAQItemProps {
   answer: string
   isOpen: boolean
   onClick: () => void
-  index: number
 }
 
-const FAQItem = ({ question, answer, isOpen, onClick, index }: FAQItemProps) => {
+const FAQItem = ({ question, answer, isOpen, onClick }: FAQItemProps) => {
   return (
     <div className="border-b border-gray-200 last:border-0">
       <button
@@ -98,7 +97,6 @@ export default function FAQ() {
             {faqItems.map((item, index) => (
               <FAQItem 
                 key={index}
-                index={index}
                 question={item.question}
                 answer={item.answer}
                 isOpen={openIndex === index}

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
-import { LottieComponentProps, LottieOptions } from 'lottie-react';
+import type { LottieOptions } from 'lottie-react';
 
 // Dynamically import Lottie with SSR disabled to prevent "document is not defined" error
 const Lottie = dynamic(() => import('lottie-react'), {
@@ -12,13 +12,27 @@ const Lottie = dynamic(() => import('lottie-react'), {
 });
 
 interface LottieAnimationProps {
-  animationData: object;
+  animationData?: AnimationData;
   animationPath?: string;
   loop?: boolean;
   autoplay?: boolean;
   className?: string;
   style?: React.CSSProperties;
   options?: Partial<LottieOptions>;
+}
+
+interface AnimationData {
+  v: string;
+  fr: number;
+  ip: number;
+  op: number;
+  w: number;
+  h: number;
+  nm: string;
+  ddd: number;
+  assets: unknown[];
+  layers: unknown[];
+  [key: string]: unknown; // Allow for additional properties
 }
 
 /**
@@ -34,7 +48,7 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
   style,
   options
 }) => {
-  const [loadedAnimation, setLoadedAnimation] = useState<any>(animationData);
+  const [loadedAnimation, setLoadedAnimation] = useState<AnimationData | null>(null);
 
   useEffect(() => {
     // If animation data is directly provided, use it
@@ -47,7 +61,7 @@ const LottieAnimation: React.FC<LottieAnimationProps> = ({
     if (animationPath) {
       fetch(animationPath)
         .then(response => response.json())
-        .then(data => {
+        .then((data: AnimationData) => {
           setLoadedAnimation(data);
         })
         .catch(error => {
