@@ -5,6 +5,19 @@ import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
 import type { LottiePlayer } from 'lottie-web';
 
+interface AnimationData {
+  v: string;
+  fr: number;
+  ip: number;
+  op: number;
+  w: number;
+  h: number;
+  nm: string;
+  ddd: number;
+  assets: any[];
+  layers: any[];
+}
+
 // Dynamically import Lottie with SSR disabled to prevent "document is not defined" error
 const Lottie = dynamic(() => import('lottie-react'), {
   ssr: false,
@@ -12,7 +25,7 @@ const Lottie = dynamic(() => import('lottie-react'), {
 });
 
 interface LottieAnimationProps {
-  animationData?: object;
+  animationData?: AnimationData;
   animationPath?: string;
   loop?: boolean;
   autoplay?: boolean;

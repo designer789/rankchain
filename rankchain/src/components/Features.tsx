@@ -122,15 +122,28 @@ const ChainSmartCard = ({ title, description, className }: Omit<FeatureCardProps
 
 // Specific card for KOL Auto-Mapping with overlapping avatars
 const KOLCard = ({ title, description, className }: Omit<FeatureCardProps, 'imageUrl' | 'children'>) => {
-  const avatars = [
-    { src: "https://randomuser.me/api/portraits/men/32.jpg", borderColor: "border-blue-400" },
-    { src: "https://randomuser.me/api/portraits/women/44.jpg", borderColor: "border-green-400" },
-    { src: "https://randomuser.me/api/portraits/men/86.jpg", borderColor: "border-yellow-400" },
-    { src: "https://randomuser.me/api/portraits/women/63.jpg", borderColor: "border-purple-400" },
-    { src: "https://randomuser.me/api/portraits/men/54.jpg", borderColor: "border-pink-400" },
-    { src: "https://randomuser.me/api/portraits/women/28.jpg", borderColor: "border-indigo-400" },
-    { src: "https://randomuser.me/api/portraits/men/42.jpg", borderColor: "border-red-400" },
-    { src: "https://randomuser.me/api/portraits/women/15.jpg", borderColor: "border-orange-400" },
+  const kolProfiles = [
+    {
+      name: "CryptoWhale",
+      handle: "@cryptowhale",
+      followers: "125K",
+      accuracy: "92%",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      name: "DeFiQueen",
+      handle: "@defiqueen",
+      followers: "89K",
+      accuracy: "88%",
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      name: "BlockchainPro",
+      handle: "@blockchainpro",
+      followers: "156K",
+      accuracy: "95%",
+      avatar: "https://randomuser.me/api/portraits/men/75.jpg"
+    }
   ];
 
   return (
@@ -139,38 +152,44 @@ const KOLCard = ({ title, description, className }: Omit<FeatureCardProps, 'imag
       description={description}
       className={className}
     >
-      <div className="h-32 flex items-center justify-center w-full bg-gray-100 relative overflow-hidden rounded-lg">
-        {/* Left fade overlay */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-gray-100 to-transparent z-10"></div>
-        
+      <div className="flex flex-col justify-center bg-transparent p-3 relative overflow-hidden rounded-lg">
         {/* Right fade overlay */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-100 to-transparent z-10"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10"></div>
         
-        <div className="flex items-center justify-start w-full px-8 overflow-hidden">
-          {avatars.map((avatar, index) => (
+        {/* KOL profiles container with narrower spacing */}
+        <div className="space-y-2 w-[160%] pr-5">
+          {kolProfiles.map((kol, index) => (
             <div 
               key={index}
-              className={cn(
-                "h-14 w-14 rounded-full border-2 shadow overflow-hidden flex-shrink-0",
-                avatar.borderColor,
-                index !== 0 && "-ml-4"
-              )}
-              style={{ zIndex: 10 - index }}
+              className="flex items-center justify-between bg-white rounded-xl overflow-hidden border border-gray-200 shadow-sm"
             >
-              <Image 
-                src={avatar.src} 
-                alt={`KOL ${index + 1}`}
-                width={56}
-                height={56} 
-                className="h-full w-full object-cover"
-              />
+              <div className="flex items-center px-4 py-2.5">
+                <div className="relative w-8 h-8 rounded-full overflow-hidden mr-3">
+                  <Image
+                    src={kol.avatar}
+                    alt={kol.name}
+                    width={32}
+                    height={32}
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-gray-900">{kol.name}</div>
+                  <div className="text-xs text-gray-500">{kol.handle}</div>
+                </div>
+              </div>
+              <div className="flex items-center pr-4">
+                <div className="text-right mr-4">
+                  <div className="text-xs text-gray-500">Followers</div>
+                  <div className="text-sm font-medium text-gray-900">{kol.followers}</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs text-gray-500">Accuracy</div>
+                  <div className="text-sm font-medium text-green-600">{kol.accuracy}</div>
+                </div>
+              </div>
             </div>
           ))}
-          
-          {/* More indicator */}
-          <div className="h-14 w-14 rounded-full bg-gray-50 border-2 border-gray-300 -ml-4 flex items-center justify-center text-gray-600 font-medium flex-shrink-0" style={{ zIndex: 1 }}>
-            +24
-          </div>
         </div>
       </div>
     </FeatureCard>

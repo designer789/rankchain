@@ -105,96 +105,72 @@ const PieChart = () => {
 };
 
 export default function Tokenomics() {
+  const allocations = [
+    { name: "Fair Launch & Liquidity", percentage: "70%", color: "bg-blue-500" },
+    { name: "Staking & Rewards", percentage: "10%", color: "bg-green-500" },
+    { name: "Ecosystem Fund", percentage: "10%", color: "bg-purple-500" },
+    { name: "Marketing & Partnerships", percentage: "5%", color: "bg-yellow-500" },
+    { name: "Development & Operations", percentage: "5%", color: "bg-red-500" }
+  ];
+
+  const utilities = [
+    {
+      title: "Staking & Voting",
+      description: "Stake $RCN to participate in wallet scoring and earn rewards based on accuracy."
+    },
+    {
+      title: "Governance",
+      description: "Vote on platform proposals and help shape the future of RankChain."
+    },
+    {
+      title: "Premium Access",
+      description: "Access advanced analytics and insights by holding $RCN tokens."
+    },
+    {
+      title: "Rewards",
+      description: "Earn $RCN tokens through accurate wallet scoring and community participation.",
+      isLast: true
+    }
+  ];
+
   return (
-    <section id="tokenomics" className="py-20 bg-gray-50">
+    <section id="tokenomics" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-tight">Tokenomics</h2>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-semibold mb-12 tracking-tight">Tokenomics</h2>
         
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-          {/* Left side - Token info and allocation */}
-          <div className="w-full lg:w-1/3 flex flex-col">
-            <div className="bg-white p-6 rounded-xl shadow-sm mb-8">
-              <div className="mb-6">
-                <div className="text-sm text-gray-500 mb-1">Token Name</div>
-                <div className="text-xl font-medium">$RCN</div>
-              </div>
-              
-              <div className="mb-6">
-                <div className="text-sm text-gray-500 mb-1">Total Supply</div>
-                <div className="text-xl font-medium">1,000,000,000 $RCN</div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left column - Token Allocation */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Token Allocation</h3>
+            <div className="flex items-center justify-center mb-8">
+              <div className="w-48 h-48">
+                <PieChart />
               </div>
             </div>
-            
-            <div className="bg-white p-6 rounded-xl shadow-sm flex-1">
-              <div className="text-sm text-gray-500 mb-3">Token Allocation</div>
-              
-              <div className="flex flex-col gap-6">
-                <div className="aspect-square w-full max-w-[140px] mx-auto">
-                  <PieChart />
-                </div>
-                
-                <div className="w-full">
-                  <TokenAllocation 
-                    name="Fair Launch & Liquidity" 
-                    percentage="70%" 
-                    color="bg-blue-500"
-                  />
-                  <TokenAllocation 
-                    name="Staking & Rewards" 
-                    percentage="10%" 
-                    color="bg-green-500"
-                  />
-                  <TokenAllocation 
-                    name="Ecosystem Fund" 
-                    percentage="10%" 
-                    color="bg-purple-500"
-                  />
-                  <TokenAllocation 
-                    name="Marketing & Partnerships" 
-                    percentage="5%" 
-                    color="bg-yellow-500"
-                  />
-                </div>
-              </div>
+            <div>
+              {allocations.map((allocation) => (
+                <TokenAllocation
+                  key={allocation.name}
+                  name={allocation.name}
+                  percentage={allocation.percentage}
+                  color={allocation.color}
+                />
+              ))}
             </div>
           </div>
           
-          {/* Right side - Utility */}
-          <div className="w-full lg:w-2/3 flex">
-            <div className="bg-white p-8 rounded-xl shadow-sm h-full w-full flex flex-col">
-              <h3 className="text-xl font-medium text-gray-900 tracking-tight mb-6">Utility</h3>
-              
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
-                  <UtilityItem 
-                    title="Staking for Scoring Participation"
-                    description="Stake $RCN tokens to participate in the wallet scoring mechanism. Your staked tokens grant you voting rights to rate the performance of smart money addresses, contributing to the platform's accuracy."
-                  />
-                  
-                  <UtilityItem 
-                    title="Governance Rights"
-                    description="Hold $RCN tokens to participate in decentralized governance. Token holders can propose and vote on key platform changes, including new features, reward structures, and more."
-                  />
-                  
-                  <UtilityItem 
-                    title="Access to Premium Data & Insights"
-                    description="Unlock exclusive analytics tools and advanced wallet tracking features by using $RCN. Gain access to premium reports, predictive analytics, and deeper insights into smart money behavior."
-                  />
-                  
-                  <UtilityItem 
-                    title="Tokenized Analytics Services"
-                    description="$RCN can be used to purchase tokenized data and analytics reports. This offers researchers, analysts, and developers valuable insights into wallet activities and market trends."
-                  />
-                  
-                  <UtilityItem 
-                    title="Fee Reduction for Premium Features"
-                    description="Stake $RCN tokens to receive discounts on platform fees for advanced services such as extended data storage, premium staking rewards, and additional governance powers."
-                    isLast={true}
-                  />
-                </div>
-              </div>
+          {/* Right column - Token Utility */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Token Utility</h3>
+            <div>
+              {utilities.map((utility) => (
+                <UtilityItem
+                  key={utility.title}
+                  title={utility.title}
+                  description={utility.description}
+                  isLast={utility.isLast}
+                />
+              ))}
             </div>
           </div>
         </div>
