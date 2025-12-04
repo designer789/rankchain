@@ -29,7 +29,7 @@ export default function Roadmap() {
           </h3>
           <div className="mb-8">
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
-              <CheckIcon /> Develop and test RankChain&apos;s AI-driven wallet tracking system
+              <CheckIcon /> Develop and test RankChain's AI-driven wallet tracking system
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
               <CheckIcon /> Deploy smart contracts for staking, scoring, and reward distribution
@@ -44,7 +44,7 @@ export default function Roadmap() {
               <CheckIcon /> Release MVP with basic AI wallet analysis and user staking functions
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
-              <CheckIcon /> Launch $RCN token and initiate platform&apos;s staking rewards system
+              <CheckIcon /> Launch $RCN token and initiate platform's staking rewards system
             </div>
           </div>
         </div>
@@ -122,10 +122,10 @@ export default function Roadmap() {
               <CheckIcon /> Open-source scoring models and wallet analysis algorithms for community contributions
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
-              <CheckIcon /> Launch the RankChain Ecosystem Grant Program to support development on the platform
+              <CheckIcon /> Launch RankChain&apos;s Ecosystem Grant Program to support development on the platform
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
-              <CheckIcon /> Organize seasonal RankChain Alpha Hunt to crowdsource alpha signals for top wallets
+              <CheckIcon /> Organize seasonal RankChain&apos;s Alpha Hunt to crowdsource alpha signals for top wallets
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
               <CheckIcon /> Strengthen partnerships with DeFi projects, data analysts, and other Web3 platforms to drive growth
