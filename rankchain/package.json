@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "preinstall": "npm install --legacy-peer-deps || true",
     "dev": "next dev",
-    "build": "next build",
+    "install:force": "npm install --legacy-peer-deps",
+    "build": "npm run install:force && next build",
     "start": "next start",
     "lint": "next lint"
   },
