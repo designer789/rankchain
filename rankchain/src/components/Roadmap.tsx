@@ -122,7 +122,7 @@ export default function Roadmap() {
               <CheckIcon /> Open-source scoring models and wallet analysis algorithms for community contributions
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
-              <CheckIcon /> Launch the RankChain&apos;s Ecosystem Grant Program to support development on the platform
+              <CheckIcon /> Launch RankChain&apos;s Ecosystem Grant Program to support development on the platform
             </div>
             <div className="mb-2 flex items-center gap-2 text-xs text-neutral-600 md:text-sm dark:text-neutral-400">
               <CheckIcon /> Organize seasonal RankChain&apos;s Alpha Hunt to crowdsource alpha signals for top wallets

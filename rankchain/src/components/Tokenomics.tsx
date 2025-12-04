@@ -45,6 +45,7 @@ const PieChart = () => {
   const staking = 10;
   const ecosystem = 10;
   const marketing = 5;
+  const development = 5;
   
   // Calculate angles for each segment
   const getCoordinatesForPercent = (percent: number) => {

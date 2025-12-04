@@ -5,6 +5,29 @@ import dynamic from 'next/dynamic';
 import { cn } from '@/lib/utils';
 import type { LottiePlayer } from 'lottie-web';
 
+interface LottieAsset {
+  id: string;
+  w: number;
+  h: number;
+  u: string;
+  p: string;
+  e: number;
+}
+
+interface LottieLayer {
+  ddd: number;
+  ind: number;
+  ty: number;
+  nm: string;
+  sr: number;
+  ks: Record<string, unknown>;
+  ao: number;
+  ip: number;
+  op: number;
+  st: number;
+  bm: number;
+}
+
 interface AnimationData {
   v: string;
   fr: number;
@@ -14,8 +37,8 @@ interface AnimationData {
   h: number;
   nm: string;
   ddd: number;
-  assets: any[];
-  layers: any[];
+  assets: LottieAsset[];
+  layers: LottieLayer[];
 }
 
 // Dynamically import Lottie with SSR disabled to prevent "document is not defined" error

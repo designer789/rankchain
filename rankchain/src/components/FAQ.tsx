@@ -94,13 +94,13 @@ export default function FAQ() {
         
         <div className="flex justify-end">
           <div className="w-full lg:w-2/3 xl:w-3/5">
-            {faqItems.map((item, index) => (
+            {faqItems.map((item) => (
               <FAQItem 
-                key={index}
+                key={item.question}
                 question={item.question}
                 answer={item.answer}
-                isOpen={openIndex === index}
-                onClick={() => toggleItem(index)}
+                isOpen={openIndex === faqItems.indexOf(item)}
+                onClick={() => toggleItem(faqItems.indexOf(item))}
               />
             ))}
           </div>
