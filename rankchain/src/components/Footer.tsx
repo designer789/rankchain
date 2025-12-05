@@ -86,7 +86,7 @@ export default function Footer() {
             </a>
 
           </div>
-          
+       
           {/* Copyright */}
           <p className="text-sm text-gray-500 order-2 md:order-3">
             &copy; {currentYear} RankChain. All rights reserved.
